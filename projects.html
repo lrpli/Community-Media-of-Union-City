@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Programs and projects — Community Media of Union City offers public access TV, media literacy education, community podcasting, and youth media training.">
+  <title>Programs | Community Media of Union City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1a2d5e;
+      --primary-dark: #0e1a3d;
+      --accent: #e8940c;
+      --bg: #ffffff;
+      --bg-alt: #f0f5fb;
+      --text: #1a1f36;
+      --text-light: #5a6a82;
+      --border: #dde6f0;
+      --shadow: 0 4px 24px rgba(26,43,94,0.10);
+      --shadow-hover: 0 8px 32px rgba(26,43,94,0.18);
+      --radius: 10px;
+      --font-head: 'Playfair Display', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    .top-bar { background: var(--primary-dark); color: #e8d5a0; font-size: 0.82rem; padding: 0.45rem 0; }
+    .top-bar-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+    .top-bar a { color: #e8d5a0; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: var(--transition); }
+    .top-bar a:hover { color: var(--accent); }
+
+    .main-nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 2px solid var(--border); box-shadow: 0 2px 12px rgba(26,43,94,0.08); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; position: relative; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-icon { width: 44px; height: 44px; background: var(--primary); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .logo-name { display: block; font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--primary); line-height: 1.2; }
+    .logo-sub { display: block; font-size: 0.7rem; color: var(--accent); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-links { display: flex; list-style: none; gap: 0.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9rem; padding: 0.5rem 0.85rem; border-radius: var(--radius); transition: var(--transition); }
+    .nav-links a:hover { background: var(--bg-alt); color: var(--primary); }
+    .nav-links a.active { background: var(--primary); color: white; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2.5px; background: var(--primary); border-radius: 2px; }
+
+    footer { background: var(--primary); }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 3.5rem 1.5rem 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; }
+    .footer-col h3 { font-family: var(--font-head); font-size: 1.15rem; color: white; margin-bottom: 0.75rem; }
+    .footer-col h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+    .footer-col p { font-size: 0.88rem; line-height: 1.75; color: rgba(255,255,255,0.62); }
+    .footer-accent { width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.45rem; }
+    .footer-col ul a { color: rgba(255,255,255,0.62); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+    .footer-col ul a:hover { color: var(--accent); }
+    .footer-col address { font-style: normal; font-size: 0.88rem; color: rgba(255,255,255,0.62); line-height: 1.8; }
+    .social-links { display: flex; gap: 0.6rem; margin-top: 1rem; }
+    .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: var(--transition); text-decoration: none; }
+    .social-links a:hover { background: var(--accent); transform: translateY(-2px); }
+    .social-links svg { width: 16px; height: 16px; fill: currentColor; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 1.25rem 1.5rem; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 5rem 0; }
+    .section-alt { background: var(--bg-alt); }
+    .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; display: block; }
+    .section-title { font-family: var(--font-head); font-size: clamp(1.8rem,3.5vw,2.6rem); color: var(--primary); line-height: 1.2; margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1.05rem; color: var(--text-light); max-width: 620px; line-height: 1.75; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.75rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: var(--transition); border: none; font-family: var(--font-body); }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: #d07c0a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,148,12,0.35); }
+    .btn-secondary { background: var(--primary); color: white; }
+    .btn-secondary:hover { background: #142048; transform: translateY(-2px); }
+    .btn-sm { padding: 0.55rem 1.25rem; font-size: 0.88rem; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    *:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+    /* PAGE HEADER */
+    .page-header { background: linear-gradient(135deg, #0e1a3d 0%, #1a2d5e 50%, #2d4a8e 100%); padding: 5rem 0 4rem; position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(232,148,12,0.1) 0%, transparent 70%); }
+    .page-header-inner { position: relative; z-index: 1; }
+    .page-header h1 { font-family: var(--font-head); font-size: clamp(2rem,4vw,3.2rem); color: white; font-weight: 900; margin-bottom: 1rem; }
+    .page-header p { font-size: 1.1rem; color: rgba(255,255,255,0.78); max-width: 560px; line-height: 1.7; }
+    .page-header-wave { position: absolute; bottom: -1px; left: 0; right: 0; line-height: 0; }
+    .page-header-wave svg { width: 100%; display: block; }
+
+    /* PROGRAM FEATURE CARDS */
+    .program-feature { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1.5px solid var(--border); }
+    .program-feature:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .program-feature.reverse { direction: rtl; }
+    .program-feature.reverse > * { direction: ltr; }
+    .program-visual {
+      border-radius: 20px;
+      aspect-ratio: 4/3;
+      position: relative;
+      overflow: hidden;
+    }
+    .program-visual img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .program-visual:hover img { transform: scale(1.04); }
+    .program-visual-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(10,18,45,0.93) 0%, rgba(10,18,45,0.45) 60%, transparent 100%); padding: 1.75rem; }
+    .program-visual-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: rgba(232,212,160,0.9); display: block; margin-bottom: 0.3rem; }
+    .program-visual-title { font-family: var(--font-head); font-size: 1.35rem; font-weight: 700; color: white; line-height: 1.3; display: block; }
+    .program-text h2 { font-family: var(--font-head); font-size: clamp(1.5rem,2.5vw,2rem); color: var(--primary); margin-bottom: 1rem; line-height: 1.3; }
+    .program-text p { font-size: 1.02rem; color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; }
+    .program-impact { background: var(--bg-alt); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; border-left: 4px solid var(--accent); }
+    .program-impact-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; }
+    .program-impact-value { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+    .program-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .tag { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 50px; padding: 0.3rem 0.9rem; font-size: 0.8rem; font-weight: 600; color: var(--text-light); }
+
+    /* HOW TO PARTICIPATE */
+    .participate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .participate-card { background: white; border: 1.5px solid var(--border); border-radius: 16px; padding: 2rem; text-align: center; transition: var(--transition); }
+    .participate-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); border-color: var(--primary); }
+    .participate-num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--primary); color: white; border-radius: 50%; font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; }
+    .participate-card h3 { font-family: var(--font-head); font-size: 1.1rem; color: var(--primary); margin-bottom: 0.6rem; }
+    .participate-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.65; }
+
+    /* GRANT STRIP */
+    .grant-strip { background: var(--primary); padding: 4rem 0; }
+    .grant-inner { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+    .grant-strip h2 { font-family: var(--font-head); font-size: clamp(1.4rem,2.5vw,2rem); color: white; margin-bottom: 0.75rem; }
+    .grant-strip p { font-size: 1.02rem; color: rgba(255,255,255,0.75); max-width: 560px; line-height: 1.7; }
+    .btn-light { background: white; color: var(--primary); }
+    .btn-light:hover { background: var(--accent); color: white; transform: translateY(-2px); }
+
+    @media (max-width: 1024px) {
+      .program-feature { grid-template-columns: 1fr; gap: 2.5rem; }
+      .program-feature.reverse { direction: ltr; }
+      .participate-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; flex-direction: column; padding: 1rem; box-shadow: var(--shadow); border-top: 2px solid var(--border); gap: 0.25rem; }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: 0.65rem 1rem; width: 100%; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .top-bar-inner { justify-content: center; gap: 1rem; }
+      .participate-grid { grid-template-columns: 1fr; }
+      .grant-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+    @media (max-width: 480px) { .section { padding: 3.5rem 0; } }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <a href="mailto:info@communitymediauc.org">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        info@communitymediauc.org
+      </a>
+      <a href="https://www.communitymediauc.org">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        communitymediauc.org
+      </a>
+    </div>
+  </div>
+
+  <header>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Community Media of Union City — Home">
+          <div class="logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" width="20" height="20"><circle cx="12" cy="12" r="2" fill="white" stroke="none"/><path d="M8.93 8.93a4.5 4.5 0 000 6.14"/><path d="M15.07 8.93a4.5 4.5 0 010 6.14"/><path d="M5.76 5.76a9 9 0 000 12.48"/><path d="M18.24 5.76a9 9 0 010 12.48"/></svg>
+          </div>
+          <div>
+            <span class="logo-name">Community Media</span>
+            <span class="logo-sub">of Union City</span>
+          </div>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mission.html">Mission</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="projects.html" class="active" aria-current="page">Programs</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container page-header-inner">
+        <span class="section-label" style="color:rgba(232,212,160,0.9);">What We Offer</span>
+        <h1>Our Programs</h1>
+        <p>Four core programs — each designed to put media skills, tools, and platforms in the hands of Union City residents. Explore what we offer and how to get involved.</p>
+      </div>
+      <div class="page-header-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff"/></svg>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section class="section">
+      <div class="container">
+
+        <!-- PUBLIC ACCESS TV -->
+        <article class="program-feature fade-in">
+          <div class="program-visual">
+            <img src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=800&q=80" alt="Camera operator filming community programming" loading="lazy">
+            <div class="program-visual-overlay">
+              <span class="program-visual-label">Program 01</span>
+              <span class="program-visual-title">Public Access Television</span>
+            </div>
+          </div>
+          <div class="program-text">
+            <span class="section-label">Broadcast</span>
+            <h2>Public Access Television</h2>
+            <div class="program-tags">
+              <span class="tag">All Ages</span>
+              <span class="tag">On-Air</span>
+              <span class="tag">Production Training</span>
+              <span class="tag">Free to Participate</span>
+            </div>
+            <p>Public access television is the cornerstone of our work. Community Media of Union City provides residents with professional-grade production equipment, studio access, and training to create and broadcast their own programming on local cable.</p>
+            <p>From town hall coverage and local sports to cultural celebrations and civic debates — the content on our channel is entirely shaped by the community. If you have a story, a skill, or a cause, we have the platform and the people to help you share it on air.</p>
+            <div class="program-impact">
+              <div class="program-impact-label">Impact</div>
+              <div class="program-impact-value">500+ programs produced since founding</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary btn-sm">Get On Air →</a>
+          </div>
+        </article>
+
+        <!-- MEDIA LITERACY -->
+        <article class="program-feature reverse fade-in">
+          <div class="program-visual">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Educator and students in a media literacy workshop" loading="lazy">
+            <div class="program-visual-overlay">
+              <span class="program-visual-label">Program 02</span>
+              <span class="program-visual-title">Media Literacy Education</span>
+            </div>
+          </div>
+          <div class="program-text">
+            <span class="section-label">Education</span>
+            <h2>Media Literacy Education</h2>
+            <div class="program-tags">
+              <span class="tag">K–12</span>
+              <span class="tag">Adults</span>
+              <span class="tag">Workshops</span>
+              <span class="tag">School Partnerships</span>
+            </div>
+            <p>In an era of information overload, knowing how to critically evaluate media is a survival skill. Our Media Literacy Education program delivers workshops, curriculum, and hands-on sessions for students and adults throughout Union City and Erie County.</p>
+            <p>Participants learn to identify misinformation, understand how media messages are constructed, and develop the confidence to create their own responsible media. We partner with the Union City Area School District to bring these skills directly into classrooms.</p>
+            <div class="program-impact">
+              <div class="program-impact-label">Impact</div>
+              <div class="program-impact-value">Hundreds of students served annually through school partnerships</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary btn-sm">Join a Workshop →</a>
+          </div>
+        </article>
+
+        <!-- COMMUNITY VOICES PODCAST -->
+        <article class="program-feature fade-in">
+          <div class="program-visual">
+            <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80" alt="Podcast microphone in a community recording session" loading="lazy">
+            <div class="program-visual-overlay">
+              <span class="program-visual-label">Program 03</span>
+              <span class="program-visual-title">Community Voices Podcast</span>
+            </div>
+          </div>
+          <div class="program-text">
+            <span class="section-label">Audio &amp; Podcast</span>
+            <h2>Community Voices Podcast</h2>
+            <div class="program-tags">
+              <span class="tag">All Ages</span>
+              <span class="tag">Podcast</span>
+              <span class="tag">Storytelling</span>
+              <span class="tag">Interview Training</span>
+            </div>
+            <p>Launched during the COVID-19 pandemic as a way to keep community connection alive, the Community Voices Podcast has grown into one of our most popular programs. Local residents pitch topics, host episodes, and interview fellow community members about issues that matter close to home.</p>
+            <p>Subjects have ranged from the history of Union City's local businesses to conversations about education, mental health, and civic identity. We provide the recording equipment, editing support, and distribution — you bring the story and the passion.</p>
+            <div class="program-impact">
+              <div class="program-impact-label">Impact</div>
+              <div class="program-impact-value">New episodes produced by community members every month</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary btn-sm">Start Your Podcast →</a>
+          </div>
+        </article>
+
+        <!-- YOUTH MEDIA LAB -->
+        <article class="program-feature reverse fade-in">
+          <div class="program-visual">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Young people learning digital media production skills" loading="lazy">
+            <div class="program-visual-overlay">
+              <span class="program-visual-label">Program 04</span>
+              <span class="program-visual-title">Youth Media Lab</span>
+            </div>
+          </div>
+          <div class="program-text">
+            <span class="section-label">Youth Development</span>
+            <h2>Youth Media Lab</h2>
+            <div class="program-tags">
+              <span class="tag">Ages 12–22</span>
+              <span class="tag">Video Production</span>
+              <span class="tag">Journalism</span>
+              <span class="tag">Free Equipment Access</span>
+            </div>
+            <p>The Youth Media Lab is our investment in the next generation of community storytellers. Young people ages 12–22 gain access to professional cameras, editing software, audio equipment, and a dedicated studio — along with mentorship from experienced media professionals.</p>
+            <p>Participants learn the technical and journalistic skills needed to produce everything from short documentaries and news packages to social media content and oral history projects. Many program alumni have gone on to careers in journalism, communications, and the arts — and many stay connected to Union City as advocates and creators.</p>
+            <div class="program-impact">
+              <div class="program-impact-label">Impact</div>
+              <div class="program-impact-value">Young people trained in media production since 2015</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary btn-sm">Enroll Your Youth →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- HOW TO PARTICIPATE -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header fade-in" style="text-align:center; margin-bottom:3rem;">
+          <span class="section-label">Get Started</span>
+          <h2 class="section-title" style="margin:0 auto;">How to Get Involved</h2>
+          <p class="section-subtitle" style="margin:0.75rem auto 0;">Joining a program is simple. Here's how most participants get started with Community Media of Union City.</p>
+        </div>
+        <div class="participate-grid">
+          <div class="participate-card fade-in delay-1">
+            <div class="participate-num" aria-hidden="true">1</div>
+            <h3>Reach Out</h3>
+            <p>Contact us by email, phone, or through our website. Tell us which program interests you and a little about what you'd like to create or learn.</p>
+          </div>
+          <div class="participate-card fade-in delay-2">
+            <div class="participate-num" aria-hidden="true">2</div>
+            <h3>Attend an Orientation</h3>
+            <p>We hold regular free orientations at our Lincolnville Road facility. You'll tour the space, meet the team, and learn what each program offers in practice.</p>
+          </div>
+          <div class="participate-card fade-in delay-3">
+            <div class="participate-num" aria-hidden="true">3</div>
+            <h3>Start Creating</h3>
+            <p>Once enrolled, you'll have access to equipment, training, mentorship, and a platform. Most participants produce their first content within their first month.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRANT STRIP -->
+    <section class="grant-strip">
+      <div class="container">
+        <div class="grant-inner fade-in">
+          <div>
+            <h2>All Programs Are Free or Low-Cost</h2>
+            <p>We believe financial barriers should never stand between a resident and their ability to participate in community media. Thanks to grants, donations, and community support, all CMUC programs are offered free of charge or at minimal cost to participants.</p>
+          </div>
+          <div style="flex-shrink:0;">
+            <a href="contact.html" class="btn btn-light">Learn More →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-accent" aria-hidden="true"></div>
+        <h3>Community Media of Union City</h3>
+        <p>Amplifying local voices through media, education, and community storytelling in Union City, PA and the surrounding region.</p>
+        <nav class="social-links" aria-label="Social media">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.95A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1a2d5e"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="#1a2d5e"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#1a2d5e" stroke-width="2"/></svg></a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mission.html">Mission &amp; Vision</a></li>
+          <li><a href="history.html">Our History</a></li>
+          <li><a href="projects.html">Programs</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <address>
+          17051 Lincolnville Rd<br>Union City, PA 16438<br><br>
+          <a href="mailto:info@communitymediauc.org" style="color:rgba(255,255,255,0.62);text-decoration:none;">info@communitymediauc.org</a><br>
+          <a href="https://www.communitymediauc.org" style="color:rgba(255,255,255,0.62);text-decoration:none;">communitymediauc.org</a>
+        </address>
+        <p style="margin-top:1rem;font-size:0.75rem;color:rgba(255,255,255,0.3);">EIN: 99-3216440</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Community Media of Union City. All rights reserved. | EIN: 99-3216440 | 501(c)(3) Nonprofit Organization</p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', e => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

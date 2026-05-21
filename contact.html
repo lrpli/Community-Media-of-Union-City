@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Community Media of Union City — reach us at 17051 Lincolnville Rd, Union City, PA 16438 or by email at info@communitymediauc.org.">
+  <title>Contact Us | Community Media of Union City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1a2d5e;
+      --primary-dark: #0e1a3d;
+      --accent: #e8940c;
+      --bg: #ffffff;
+      --bg-alt: #f0f5fb;
+      --text: #1a1f36;
+      --text-light: #5a6a82;
+      --border: #dde6f0;
+      --shadow: 0 4px 24px rgba(26,43,94,0.10);
+      --shadow-hover: 0 8px 32px rgba(26,43,94,0.18);
+      --radius: 10px;
+      --font-head: 'Playfair Display', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    .top-bar { background: var(--primary-dark); color: #e8d5a0; font-size: 0.82rem; padding: 0.45rem 0; }
+    .top-bar-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+    .top-bar a { color: #e8d5a0; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: var(--transition); }
+    .top-bar a:hover { color: var(--accent); }
+
+    .main-nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 2px solid var(--border); box-shadow: 0 2px 12px rgba(26,43,94,0.08); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; position: relative; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-icon { width: 44px; height: 44px; background: var(--primary); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .logo-name { display: block; font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--primary); line-height: 1.2; }
+    .logo-sub { display: block; font-size: 0.7rem; color: var(--accent); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-links { display: flex; list-style: none; gap: 0.2rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9rem; padding: 0.5rem 0.85rem; border-radius: var(--radius); transition: var(--transition); }
+    .nav-links a:hover { background: var(--bg-alt); color: var(--primary); }
+    .nav-links a.active { background: var(--primary); color: white; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2.5px; background: var(--primary); border-radius: 2px; }
+
+    footer { background: var(--primary); }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 3.5rem 1.5rem 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; }
+    .footer-col h3 { font-family: var(--font-head); font-size: 1.15rem; color: white; margin-bottom: 0.75rem; }
+    .footer-col h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+    .footer-col p { font-size: 0.88rem; line-height: 1.75; color: rgba(255,255,255,0.62); }
+    .footer-accent { width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.45rem; }
+    .footer-col ul a { color: rgba(255,255,255,0.62); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+    .footer-col ul a:hover { color: var(--accent); }
+    .footer-col address { font-style: normal; font-size: 0.88rem; color: rgba(255,255,255,0.62); line-height: 1.8; }
+    .social-links { display: flex; gap: 0.6rem; margin-top: 1rem; }
+    .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: var(--transition); text-decoration: none; }
+    .social-links a:hover { background: var(--accent); transform: translateY(-2px); }
+    .social-links svg { width: 16px; height: 16px; fill: currentColor; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 1.25rem 1.5rem; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 5rem 0; }
+    .section-alt { background: var(--bg-alt); }
+    .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; display: block; }
+    .section-title { font-family: var(--font-head); font-size: clamp(1.8rem,3.5vw,2.6rem); color: var(--primary); line-height: 1.2; margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1.05rem; color: var(--text-light); max-width: 600px; line-height: 1.75; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    *:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+    /* PAGE HEADER */
+    .page-header { background: linear-gradient(135deg, #0e1a3d 0%, #1a2d5e 50%, #2d4a8e 100%); padding: 5rem 0 4rem; position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(232,148,12,0.1) 0%, transparent 70%); }
+    .page-header-inner { position: relative; z-index: 1; }
+    .page-header h1 { font-family: var(--font-head); font-size: clamp(2rem,4vw,3.2rem); color: white; font-weight: 900; margin-bottom: 1rem; }
+    .page-header p { font-size: 1.1rem; color: rgba(255,255,255,0.78); max-width: 560px; line-height: 1.7; }
+    .page-header-wave { position: absolute; bottom: -1px; left: 0; right: 0; line-height: 0; }
+    .page-header-wave svg { width: 100%; display: block; }
+
+    /* CONTACT LAYOUT */
+    .contact-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3.5rem; align-items: start; }
+
+    /* INFO PANEL */
+    .info-panel { display: flex; flex-direction: column; gap: 1.25rem; }
+    .info-card { background: white; border: 1.5px solid var(--border); border-radius: 16px; padding: 1.5rem; display: flex; align-items: flex-start; gap: 1.25rem; transition: var(--transition); }
+    .info-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .info-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .info-card h3 { font-family: var(--font-head); font-size: 0.95rem; color: var(--primary); margin-bottom: 0.3rem; }
+    .info-card p, .info-card a { font-size: 0.92rem; color: var(--text-light); line-height: 1.65; text-decoration: none; display: block; }
+    .info-card a:hover { color: var(--accent); }
+
+    /* HOURS */
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 0.25rem; }
+    .hours-table tr td { font-size: 0.88rem; padding: 0.2rem 0; color: var(--text-light); }
+    .hours-table tr td:first-child { font-weight: 600; color: var(--text); padding-right: 1rem; }
+
+    /* CONTACT FORM */
+    .form-card { background: white; border: 1.5px solid var(--border); border-radius: 20px; padding: 2.5rem; box-shadow: var(--shadow); }
+    .form-card h2 { font-family: var(--font-head); font-size: 1.6rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .form-card .form-intro { font-size: 0.95rem; color: var(--text-light); margin-bottom: 2rem; line-height: 1.65; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.85rem; font-weight: 700; color: var(--text); letter-spacing: 0.02em; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--bg-alt);
+      transition: var(--transition);
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(26,45,94,0.08);
+    }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-group select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a6a82' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+    .form-submit { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .form-note { font-size: 0.82rem; color: var(--text-light); }
+    .btn-form { background: var(--accent); color: white; border: none; padding: 0.85rem 2rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; font-family: var(--font-body); cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-form:hover { background: #d07c0a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,148,12,0.35); }
+
+    /* MAP PLACEHOLDER */
+    .map-placeholder {
+      background: var(--bg-alt);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--text-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .map-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        rgba(26,45,94,0.025) 20px,
+        rgba(26,45,94,0.025) 40px
+      );
+    }
+    .map-pin { width: 48px; height: 48px; background: var(--primary); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; position: relative; z-index: 1; }
+    .map-pin svg { transform: rotate(45deg); }
+    .map-placeholder p { font-size: 0.95rem; font-weight: 600; color: var(--primary); position: relative; z-index: 1; }
+    .map-placeholder span { font-size: 0.82rem; color: var(--text-light); position: relative; z-index: 1; }
+    .map-placeholder a { font-size: 0.85rem; font-weight: 700; color: var(--accent); text-decoration: none; position: relative; z-index: 1; transition: var(--transition); }
+    .map-placeholder a:hover { color: #d07c0a; }
+
+    /* WAYS TO CONNECT */
+    .connect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .connect-card { background: white; border: 1.5px solid var(--border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: var(--transition); }
+    .connect-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); border-color: var(--primary); }
+    .connect-icon { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.1rem; }
+    .connect-card h3 { font-family: var(--font-head); font-size: 1.05rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .connect-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.65; }
+    .connect-card a { color: var(--accent); font-weight: 700; text-decoration: none; font-size: 0.88rem; }
+    .connect-card a:hover { color: #d07c0a; }
+
+    @media (max-width: 1024px) { .contact-layout { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; flex-direction: column; padding: 1rem; box-shadow: var(--shadow); border-top: 2px solid var(--border); gap: 0.25rem; }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: 0.65rem 1rem; width: 100%; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .top-bar-inner { justify-content: center; gap: 1rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .connect-grid { grid-template-columns: 1fr; }
+      .form-submit { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) { .section { padding: 3.5rem 0; } .form-card { padding: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <a href="mailto:info@communitymediauc.org">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        info@communitymediauc.org
+      </a>
+      <a href="https://www.communitymediauc.org">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        communitymediauc.org
+      </a>
+    </div>
+  </div>
+
+  <header>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Community Media of Union City — Home">
+          <div class="logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" width="20" height="20"><circle cx="12" cy="12" r="2" fill="white" stroke="none"/><path d="M8.93 8.93a4.5 4.5 0 000 6.14"/><path d="M15.07 8.93a4.5 4.5 0 010 6.14"/><path d="M5.76 5.76a9 9 0 000 12.48"/><path d="M18.24 5.76a9 9 0 010 12.48"/></svg>
+          </div>
+          <div>
+            <span class="logo-name">Community Media</span>
+            <span class="logo-sub">of Union City</span>
+          </div>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mission.html">Mission</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="projects.html">Programs</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container page-header-inner">
+        <span class="section-label" style="color:rgba(232,212,160,0.9);">We'd Love to Hear From You</span>
+        <h1>Contact Us</h1>
+        <p>Whether you want to get involved in a program, partner with us, make a donation, or just ask a question — we're here and we'd love to connect.</p>
+      </div>
+      <div class="page-header-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff"/></svg>
+      </div>
+    </section>
+
+    <!-- MAIN CONTACT SECTION -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- INFO PANEL -->
+          <div class="info-panel fade-in">
+            <div class="info-card">
+              <div class="info-icon" style="background:#e8f0fd;" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#1a2d5e" stroke-width="2" width="24" height="24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h3>Our Address</h3>
+                <address>
+                  <p>17051 Lincolnville Rd</p>
+                  <p>Union City, PA 16438</p>
+                  <p>United States</p>
+                </address>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon" style="background:#fef3e0;" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#e8940c" stroke-width="2" width="24" height="24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <h3>Email Us</h3>
+                <a href="mailto:info@communitymediauc.org">info@communitymediauc.org</a>
+                <p style="margin-top:0.25rem;">We typically respond within 1–2 business days.</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon" style="background:#e8f5ee;" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#2d8c5e" stroke-width="2" width="24" height="24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <h3>Office Hours</h3>
+                <table class="hours-table">
+                  <tr><td>Monday–Wednesday</td><td>9:00 AM – 5:00 PM</td></tr>
+                  <tr><td>Thursday</td><td>9:00 AM – 7:00 PM</td></tr>
+                  <tr><td>Friday</td><td>9:00 AM – 4:00 PM</td></tr>
+                  <tr><td>Saturday</td><td>10:00 AM – 2:00 PM</td></tr>
+                  <tr><td>Sunday</td><td>Closed</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon" style="background:#f0e8fd;" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" width="24" height="24"><path d="M21 2H3v16h5l4 4 4-4h5z"/></svg>
+              </div>
+              <div>
+                <h3>Follow Us Online</h3>
+                <p style="margin-bottom:0.5rem;">Stay up to date with programs, events, and community stories.</p>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                  <a href="#" style="font-size:0.82rem;font-weight:700;color:var(--accent);text-decoration:none;">Facebook</a>
+                  <span style="color:var(--border);">·</span>
+                  <a href="#" style="font-size:0.82rem;font-weight:700;color:var(--accent);text-decoration:none;">Twitter</a>
+                  <span style="color:var(--border);">·</span>
+                  <a href="#" style="font-size:0.82rem;font-weight:700;color:var(--accent);text-decoration:none;">YouTube</a>
+                  <span style="color:var(--border);">·</span>
+                  <a href="#" style="font-size:0.82rem;font-weight:700;color:var(--accent);text-decoration:none;">Instagram</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- MAP -->
+            <div class="map-placeholder" role="img" aria-label="Map showing location at 17051 Lincolnville Rd, Union City PA">
+              <div class="map-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" fill="#1a2d5e"/></svg>
+              </div>
+              <p>17051 Lincolnville Rd</p>
+              <span>Union City, PA 16438</span>
+              <a href="https://maps.google.com/?q=17051+Lincolnville+Rd+Union+City+PA+16438" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a>
+            </div>
+          </div>
+
+          <!-- CONTACT FORM -->
+          <div class="form-card fade-in delay-2">
+            <h2>Send Us a Message</h2>
+            <p class="form-intro">Use this form to get in touch about programs, partnerships, volunteering, donations, or any general inquiry. We read every message and do our best to respond promptly.</p>
+            <form action="#" method="POST" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name">First Name <span style="color:#c0392b;">*</span></label>
+                  <input type="text" id="first-name" name="first_name" placeholder="Jane" required autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last Name <span style="color:#c0392b;">*</span></label>
+                  <input type="text" id="last-name" name="last_name" placeholder="Smith" required autocomplete="family-name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span style="color:#c0392b;">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number <span style="color:var(--text-light);font-weight:400;">(optional)</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="(814) 555-0100" autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="subject">I'm interested in… <span style="color:#c0392b;">*</span></label>
+                <select id="subject" name="subject" required>
+                  <option value="" disabled selected>Select a topic</option>
+                  <option value="public-access">Public Access Television</option>
+                  <option value="media-literacy">Media Literacy Education</option>
+                  <option value="podcast">Community Voices Podcast</option>
+                  <option value="youth-lab">Youth Media Lab</option>
+                  <option value="volunteer">Volunteering</option>
+                  <option value="donate">Making a Donation</option>
+                  <option value="partnership">Partnership / Collaboration</option>
+                  <option value="general">General Inquiry</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Your Message <span style="color:#c0392b;">*</span></label>
+                <textarea id="message" name="message" placeholder="Tell us about yourself and what brings you to Community Media of Union City…" required></textarea>
+              </div>
+              <div class="form-submit">
+                <p class="form-note">Fields marked <span style="color:#c0392b;">*</span> are required. We never share your information.</p>
+                <button type="submit" class="btn-form">
+                  Send Message
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WAYS TO CONNECT -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header fade-in" style="text-align:center; margin-bottom:3rem;">
+          <span class="section-label">Other Ways to Engage</span>
+          <h2 class="section-title" style="margin:0 auto;">More Ways to Connect</h2>
+        </div>
+        <div class="connect-grid">
+          <div class="connect-card fade-in delay-1">
+            <div class="connect-icon" style="background:#e8f0fd;" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1a2d5e" stroke-width="2" width="26" height="26"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h3>Volunteer With Us</h3>
+            <p>We always need enthusiastic volunteers — whether for production support, community outreach, or event help. No prior media experience required.</p>
+            <a href="mailto:info@communitymediauc.org?subject=Volunteering">Express interest →</a>
+          </div>
+          <div class="connect-card fade-in delay-2">
+            <div class="connect-icon" style="background:#fef3e0;" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8940c" stroke-width="2" width="26" height="26"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <h3>Make a Donation</h3>
+            <p>Community Media of Union City is a 501(c)(3) nonprofit. Your tax-deductible donation directly supports free programs for Union City residents.</p>
+            <a href="mailto:info@communitymediauc.org?subject=Donation">Learn how to give →</a>
+          </div>
+          <div class="connect-card fade-in delay-3">
+            <div class="connect-icon" style="background:#e8f5ee;" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#2d8c5e" stroke-width="2" width="26" height="26"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+            </div>
+            <h3>Partnership Opportunities</h3>
+            <p>Schools, businesses, faith communities, and civic groups — we partner with organizations that share our commitment to community connection and civic media.</p>
+            <a href="mailto:info@communitymediauc.org?subject=Partnership">Explore partnerships →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-accent" aria-hidden="true"></div>
+        <h3>Community Media of Union City</h3>
+        <p>Amplifying local voices through media, education, and community storytelling in Union City, PA and the surrounding region.</p>
+        <nav class="social-links" aria-label="Social media">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.95A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1a2d5e"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="#1a2d5e"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#1a2d5e" stroke-width="2"/></svg></a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mission.html">Mission &amp; Vision</a></li>
+          <li><a href="history.html">Our History</a></li>
+          <li><a href="projects.html">Programs</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <address>
+          17051 Lincolnville Rd<br>Union City, PA 16438<br><br>
+          <a href="mailto:info@communitymediauc.org" style="color:rgba(255,255,255,0.62);text-decoration:none;">info@communitymediauc.org</a><br>
+          <a href="https://www.communitymediauc.org" style="color:rgba(255,255,255,0.62);text-decoration:none;">communitymediauc.org</a>
+        </address>
+        <p style="margin-top:1rem;font-size:0.75rem;color:rgba(255,255,255,0.3);">EIN: 99-3216440</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Community Media of Union City. All rights reserved. | EIN: 99-3216440 | 501(c)(3) Nonprofit Organization</p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', e => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
